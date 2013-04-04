@@ -344,7 +344,7 @@ class ThreadController extends Controller
      *
      * @return View
      */
-    public function putThreadCommentsAction(Request $request, $id, $commentId)
+    public function postEditThreadCommentsAction(Request $request, $id, $commentId)
     {
         $commentManager = $this->container->get('fos_comment.manager.comment');
 
