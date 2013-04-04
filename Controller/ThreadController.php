@@ -171,7 +171,7 @@ class ThreadController extends Controller
         $form = $this->container->get('fos_comment.form_factory.commentable_thread')->createForm();
         $form->setData($thread);
 
-        if ('PATCH' === $request->getMethod()) {
+        if ('POST' === $request->getMethod()) {
             $form->bind($request);
 
             if ($form->isValid()) {
