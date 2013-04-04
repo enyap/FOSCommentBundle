@@ -159,7 +159,7 @@ class ThreadController extends Controller
      *
      * @return View
      */
-    public function postThreadCommentableAction(Request $request, $id)
+    public function getThreadCommentableAction(Request $request, $id)
     {
         $manager = $this->container->get('fos_comment.manager.thread');
         $thread = $manager->findThreadById($id);
