@@ -66,48 +66,7 @@
             };
             $.post(url, data, success).error(wrappedErrorCallback).complete(wrappedCompleteCallback);
         },
-                
-        patch: function(url, data, success, error, complete) {
-            // Wrap the error callback to match return data between jQuery and easyXDM
-            var wrappedErrorCallback = function(response){
-                if('undefined' !== typeof error) {
-                    error(response.responseText, response.status);
-                }
-            };
-            var wrappedCompleteCallback = function(response){
-                if('undefined' !== typeof complete) {
-                    complete(response.responseText, response.status);
-                }
-            };
-            //$.post(url, data, success).error(wrappedErrorCallback).complete(wrappedCompleteCallback);
-            $.ajax({
-                type: "PATCH",
-                url: url,
-                data: data,
-                success: success
-            }).error(wrappedErrorCallback).complete(wrappedCompleteCallback);
-        },
-                
-        put: function(url, data, success, error, complete) {
-            // Wrap the error callback to match return data between jQuery and easyXDM
-            var wrappedErrorCallback = function(response){
-                if('undefined' !== typeof error) {
-                    error(response.responseText, response.status);
-                }
-            };
-            var wrappedCompleteCallback = function(response){
-                if('undefined' !== typeof complete) {
-                    complete(response.responseText, response.status);
-                }
-            };
-            //$.post(url, data, success).error(wrappedErrorCallback).complete(wrappedCompleteCallback);
-            $.ajax({
-                type: "PUT",
-                url: url,
-                data: data,
-                success: success
-            }).error(wrappedErrorCallback).complete(wrappedCompleteCallback);
-        },
+
         /**
          * Shorcut get method.
          *
@@ -338,7 +297,7 @@
                             // Post it
                             var form = $(data).children('form')[0];
 
-                            FOS_COMMENT.patch(
+                            FOS_COMMENT.post(
                                 form.action,
                                 FOS_COMMENT.serializeObject(form),
                                 function(data) {
@@ -367,7 +326,7 @@
                             // Post it
                             var form = $(data).children('form')[0];
 
-                            FOS_COMMENT.patch(
+                            FOS_COMMENT.post(
                                 form.action,
                                 FOS_COMMENT.serializeObject(form),
                                 function(data) {
