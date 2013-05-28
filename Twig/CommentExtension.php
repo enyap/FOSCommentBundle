@@ -217,7 +217,7 @@ class CommentExtension extends \Twig_Extension
     public function canCommentThread(ThreadInterface $thread)
     {
         return $thread->isCommentable()
-            && (null === $this->commentAcl || $this->commentAcl->canCreate());
+            && (null === $this->commentAcl || $this->commentAcl->canCreate($thread));
     }
 
     /**
